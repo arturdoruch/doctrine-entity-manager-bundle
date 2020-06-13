@@ -1,0 +1,4 @@
+services:
+    arturdoruch.doctrine_entity_manager_registry:
+        class: ArturDoruch\DoctrineEntityManagerBundle\EntityManagerRegistry
+        arguments: ['@doctrine']
