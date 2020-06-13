@@ -12,14 +12,14 @@ use Doctrine\ORM\EntityRepository;
 abstract class AbstractEntityManager
 {
     /**
-     * @var Connection The default connection.
-     */
-    protected $connection;
-
-    /**
      * @var EntityManager Doctrine entity manager.
      */
     protected $em;
+
+    /**
+     * @var Connection
+     */
+    protected $connection;
 
     /**
      * @var EntityRepository
@@ -32,8 +32,12 @@ abstract class AbstractEntityManager
     private $registry;
 
 
-    final public function setRegistry(EntityManagerRegistry $registry)
+    final public function construct(EntityManagerRegistry $registry)
     {
+        if ($this->registry) {
+            return;
+        }
+
         $this->registry = $registry;
         // Set entity manager and connection.
         $this->em = $registry->getDoctrine()->getManager($this->getEntityManagerName());

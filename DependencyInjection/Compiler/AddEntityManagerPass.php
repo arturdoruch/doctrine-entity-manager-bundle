@@ -13,10 +13,13 @@ class AddEntityManagerPass implements CompilerPassInterface
 {
     public function process(ContainerBuilder $container)
     {
-        $registryDefinition = $container->getDefinition('arturdoruch.doctrine_entity_manager_registry');
+        $registryServiceId = 'arturdoruch.doctrine_entity_manager_registry';
+        $registryDefinition = $container->getDefinition($registryServiceId);
         $managerServiceIds = $container->findTaggedServiceIds('arturdoruch.doctrine_entity_manager', true);
 
         foreach ($managerServiceIds as $id => $attributes) {
+            $managerDefinition = $container->getDefinition($id);
+            $managerDefinition->addMethodCall('construct', [new Reference($registryServiceId)]);
             $registryDefinition->addMethodCall('register', [new Reference($id)]);
         }
     }

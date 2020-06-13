@@ -33,8 +33,10 @@ class EntityManagerRegistry
 
     public function register(AbstractEntityManager $manager)
     {
-        $this->managers[get_class($manager)] = $manager;
-        $manager->setRegistry($this);
+        $class = get_class($manager);
+
+        $manager->construct($this);
+        $this->managers[$class] = $manager;
     }
 
     /**
