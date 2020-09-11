@@ -31,7 +31,6 @@ abstract class AbstractEntityManager
      */
     private $registry;
 
-
     final public function construct(EntityManagerRegistry $registry)
     {
         if ($this->registry) {
@@ -47,16 +46,20 @@ abstract class AbstractEntityManager
     }
 
     /**
+     * Gets Doctrine entity manager name (configured in "doctrine.orm.entity_managers") for this entity.
+     *
+     * @return null|string
+     */
+    protected function getEntityManagerName(): ?string
+    {
+        return null;
+    }
+
+    /**
      * Makes manager initializations. E.g. get another manager ($this->getManager(ClassNameManager::class);).
      */
     protected function initialize()
     {
-    }
-
-
-    protected function getEntityManagerName(): ?string
-    {
-        return null;
     }
 
     /**
