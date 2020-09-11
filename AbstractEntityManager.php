@@ -46,7 +46,8 @@ abstract class AbstractEntityManager
     }
 
     /**
-     * Gets Doctrine entity manager name (configured in "doctrine.orm.entity_managers") for this entity.
+     * Gets Doctrine entity manager name (configured in "doctrine.orm.entity_managers")
+     * for entity managed by this manager.
      *
      * @return null|string
      */
@@ -56,7 +57,7 @@ abstract class AbstractEntityManager
     }
 
     /**
-     * Makes manager initializations. E.g. get another manager ($this->getManager(ClassNameManager::class);).
+     * Makes manager initializations. E.g. get another manager $this->getManager(ClassNameManager::class);.
      */
     protected function initialize()
     {
