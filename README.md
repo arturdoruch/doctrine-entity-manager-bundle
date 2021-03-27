@@ -3,7 +3,7 @@
 Symfony Bundle helping to create and access to the own Doctrine entity manager classes
 (with operations doing on the entity).
 
-## Install
+## Installation
 
 ```sh
 composer require arturdoruch/doctrine-entity-manager-bundle
@@ -65,9 +65,9 @@ class FooManager extends AbstractEntityManager
 }
 ```
 
-### Register service as entity manager
+### Register entity manager as service
 
-To register service as entity manager, add the `arturdoruch.doctrine_entity_manager` tag
+To register entity manager as service, add the `arturdoruch.doctrine_entity_manager` tag
 to the service configuration.
 
 ```yml
@@ -79,7 +79,7 @@ doctrine.foo_manager:
 ### Accessing entity managers
 
 All managers are registered in `ArturDoruch\DoctrineEntityManagerBundle\EntityManagerRegistry` class.
-To get specific entity manager pass its class name to the `get()` method.
+To get specific entity manager pass it class name to the `get()` method.
 
 In controller:
 
@@ -120,7 +120,7 @@ class FooManager extends AbstractEntityManager
 
 `ArturDoruch\DoctrineEntityManagerBundle\AbstractEntityManager` 
  
-Protected methods to use in entity manager class:
+Protected methods for use in the entity manager class:
 
   * getEntityManagerName
   * initialize
