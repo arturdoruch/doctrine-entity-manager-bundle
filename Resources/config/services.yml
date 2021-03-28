@@ -1,4 +1,8 @@
 services:
+    ArturDoruch\DoctrineEntityManagerBundle\EntityManagerRegistry:
+        alias: arturdoruch.doctrine_entity_manager_registry
+        public: false
+
     arturdoruch.doctrine_entity_manager_registry:
         class: ArturDoruch\DoctrineEntityManagerBundle\EntityManagerRegistry
         arguments: ['@doctrine']
